@@ -1,0 +1,146 @@
+.quality {
+  position: relative;
+  padding: 52px;
+  background-color: $bg;
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 30%;
+    height: 100%;
+    background: $bg-beige;
+    left: 0;
+    top: 0;
+  }
+
+  &__wrapper {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__shell {
+    display: flex;
+    align-items: center;
+    @include adpt($tab-r) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__swiper {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 45%;
+    margin: 0 80px 0 0;
+    @include adpt($tab-r) {
+      flex-basis: 100%;
+      margin-right: 0;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__swiper-wrapper {
+    margin-bottom: 20px;
+  }
+
+  &__image {
+    height: 414px;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    @include adpt($bmob-r) {
+      height: 300px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 38px;
+    @include adpt($bmob-r) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__description {
+    max-width: 376px;
+    font-size: 16px;
+    margin-bottom: 70px;
+    line-height: 24px;
+    color: $gray;
+    @include adpt($tab-r) {
+      max-width: 100%;
+      margin-bottom: 48px;
+    }
+    @include adpt($bmob-r) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__button {
+    @include button($light-orange, $light-brown, $white);
+    @include adpt($bmob-r) {
+      width: 100%;
+    }
+  }
+
+  &__pagination {
+    align-self: flex-end;
+    position: relative;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 60px;
+
+    &_value {
+      font-size: 12px;
+      font-family: Prata, sans-serif;
+      color: $black-opacity;
+    }
+  }
+
+  &__button {
+    &-next, &-prev {
+      &::after {
+        content: "";
+        width: 5px;
+        height: 10px;
+        background: url("../images/arrow-right-icon.svg") center center/contain no-repeat;
+        @include adpt($stab-r) {
+          width: 10px;
+          height: 15px;
+        }
+        @include adpt($bmob-r) {
+          width: 20px;
+          height: 25px;
+        }
+      }
+    }
+
+    &-next {
+      right: 0;
+    }
+
+    &-prev {
+      left: 0;
+
+      &::after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  @include adpt($stab-r) {
+    padding: 32px;
+  }
+  @include adpt($bmob-r) {
+    padding: 24px;
+  }
+}
+
+.swiper-pagination-enum {
+  &:before {
+    content: "0";
+  }
+}

@@ -1,0 +1,223 @@
+.first-screen {
+  &__wrapper {
+    position: relative;
+    height: 750px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    @include adpt($stab-r) {
+      flex-wrap: wrap;
+      height: max-content;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    height: 100%;
+    width: 500px;
+    background: linear-gradient(180deg, rgba(234, 227, 212, 0) 0%, #EAE3D4 100%);
+    mix-blend-mode: normal;
+    border-radius: 500px 0 0 500px;
+    left: 50%;
+    top: 0;
+    z-index: -1;
+    transform: translateX(-45%);
+    @include adpt($stab-r) {
+      top: unset;
+      bottom: 0;
+      width: 400px;
+      height: 400px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+    }
+    @include adpt($bmob-r) {
+      height: 350px;
+      width: 350px;
+      bottom: 10px;
+    }
+  }
+
+  &__line {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 50px;
+      height: 1px;
+      background-color: $light-brown;
+      top: 50%;
+      transform: translateY(-50%);
+
+    }
+
+    &_right {
+      &::before {
+        right: -75px;
+        @include adpt($stab-r) {
+          right: -100%;
+        }
+      }
+    }
+
+    &_left {
+      &::before {
+        left: -75px;
+        @include adpt($stab-r) {
+          left: -100%;
+        }
+      }
+    }
+    @include adpt($bmob-r) {
+      &::before {
+        width: 30px;
+      }
+    }
+  }
+
+  &__content {
+    flex-basis: 43%;
+    margin-right: 55px;
+    padding-left: 75px;
+    @include adpt($mtab-r) {
+      margin-right: 0;
+    }
+    @include adpt($stab-r) {
+      flex-basis: 100%;
+      padding-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  &__title {
+    font-size: 45px;
+    font-family: "Playfair Display", sans-serif;
+    margin-bottom: 16px;
+    font-weight: 400;
+    @include adpt($mtab-r) {
+      font-size: 32px;
+    }
+    @include adpt($stab-r) {
+      text-align: center;
+      &::before {
+        left: 10%;
+      }
+    }
+    @include adpt($bmob-r) {
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  &__subtitle {
+    font-size: 30px;
+    font-family: "Playfair Display", sans-serif;
+    margin-bottom: 39px;
+    font-weight: 400;
+    @include adpt($mtab-r) {
+      font-size: 24px;
+    }
+    @include adpt($stab-r) {
+      text-align: center;
+    }
+  }
+
+  &__description {
+    margin-bottom: 64px;
+    font-weight: 300;
+    color: $black-opacity;
+    max-width: 300px;
+    @include adpt($mtab-r) {
+      margin-bottom: 32px;
+    }
+    @include adpt($stab-r) {
+      max-width: unset;
+      text-align: center;
+    }
+  }
+
+  &__button {
+    @include button($gray, $light-brown, $white);
+    @include adpt($stab-r) {
+      display: block;
+      margin: 0 auto 32px;
+    }
+    @include adpt($bmob-r){
+      width: 100%;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-basis: 70%;
+    @include adpt($stab-r) {
+      flex-basis: 100%;
+    }
+  }
+
+  &__price, &__diameter {
+    font-family: "Prata", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    @include adpt($bmob-r) {
+      font-size: 12px;
+    }
+  }
+
+  &__diameter {
+    display: flex;
+    align-items: flex-end;
+    flex-basis: 30%;
+    margin-bottom: 120px;
+
+    &_value {
+      height: max-content;
+    }
+
+    @include adpt($tab-r) {
+      flex-basis: 15%;
+    }
+    @include adpt($stab-r) {
+      margin-bottom: 60px;
+      flex-basis: 10%;
+    }
+  }
+
+  &__shell {
+    flex-basis: 20%;
+    margin-top: 140px;
+    @include adpt($tab-r) {
+      flex-basis: 15%;
+    }
+    @include adpt($stab-r) {
+      margin-top: 70px;
+    }
+    @include adpt($bmob-r) {
+      flex-basis: 10%;
+    }
+  }
+
+  &__price {
+    &_value {
+      margin-right: 7px;
+      @include adpt($bmob-r) {
+        margin-right: 3px;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 800px;
+    @include adpt($stab-r) {
+      height: 400px;
+      background-size: contain;
+    }
+  }
+}

@@ -1,0 +1,103 @@
+.news {
+  padding-top: 80px;
+  padding-bottom: 90px;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    min-height: 460px;
+    justify-content: space-between;
+    @include adpt($mtab-r) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    flex-basis: 50%;
+    height: 460px;
+    gap: 10px;
+    @include adpt($mtab-r) {
+      flex-basis: 100%;
+      height: 400px;
+    }
+    @include adpt($bmob-r){
+      height: 300px;
+    }
+  }
+
+  &__image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    &_big {
+      grid-column-start: 2;
+      grid-row-start: 1;
+      grid-row-end: 3;
+    }
+  }
+
+  &__content {
+    flex-basis: 45%;
+    @include adpt($mtab-r){
+      flex-basis: 100%;
+      margin-bottom: 48px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 40px;
+    @include adpt($mtab-r){
+      margin-bottom: 24px;
+    }
+  }
+
+  &__description {
+    margin-bottom: 120px;
+    max-width: 376px;
+    font-size: 16px;
+    @include adpt($mtab-r){
+      margin-bottom: 32px;
+    }
+  }
+
+  &__soc-links {
+    display: flex;
+    align-items: center;
+  }
+
+  &__soc-link {
+    width: 22px;
+    height: 22px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &:not(:last-child) {
+      margin-right: 18px;
+      @include adpt($bmob-r){
+        margin-right: 24px;
+      }
+    }
+
+    &:hover {
+      filter: invert(56%) sepia(3%) saturate(2628%) hue-rotate(4deg) brightness(93%) contrast(73%);
+    }
+    @include adpt($bmob-r){
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  &__href {
+    width: 100%;
+    height: 100%;
+  }
+  @include adpt($stab-r){
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}

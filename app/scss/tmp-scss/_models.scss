@@ -1,0 +1,174 @@
+.models {
+  padding-top: 80px;
+  padding-bottom: 86px;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+
+  }
+
+  &__title {
+    @include adpt($bmob-r) {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__all {
+    position: relative;
+    align-self: flex-end;
+    margin-bottom: 37px;
+    padding-bottom: 12px;
+    transition: color 0.5s;
+
+    &::before {
+      position: absolute;
+      content: "";
+      height: 1px;
+      width: 100%;
+      background-color: $light-brown;
+      left: 0;
+      transition: width 0.5s;
+      bottom: 0;
+    }
+
+    &:hover {
+      color: $light-brown;
+
+      &::before {
+        width: 0;
+      }
+    }
+
+    @include adpt($bmob-r) {
+      margin-bottom: 24px;
+      padding-bottom: 6px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+    @include adpt($tab-r) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include adpt($stab-r) {
+      gap: 12px;
+    }
+    @include adpt($bmob-r) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    padding: 40px 26px 40px 30px;
+    background-color: $bg;
+    @include adpt($stab-r) {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__name {
+    font-weight: 700;
+    font-family: "Playfair Display", sans-serif;
+    margin-bottom: 12px;
+    color: $black-opacity;
+  }
+
+  &__price {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-family: Prata, sans-serif;
+
+    &_value {
+      margin-right: 4px;
+    }
+
+    @include adpt($bmob-r) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__image {
+    position: relative;
+    width: calc(100% - 2px);
+    height: 311px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: $bg;
+    border-radius: 50%;
+    z-index: 1;
+    @include adpt($bmob-r) {
+      width: 100%
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+    @include adpt($bmob-r) {
+      width: 100%;
+    }
+  }
+
+  &__image-border {
+    position: absolute;
+    content: "";
+    left: -1px;
+    top: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    z-index: 0;
+    border-radius: 50%;
+    background: linear-gradient(-90deg, #E9E3D4 0.3%, rgba(226, 208, 196, 0) 99.67%);
+  }
+
+  &__more {
+    position: relative;
+    font-size: 16px;
+    font-family: "Playfair Display", sans-serif;
+    padding-left: 48px;
+    transition: 0.5s color;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 30px;
+      height: 1px;
+      left: -18px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: $light-brown;
+      transition: transform 0.5s, opacity 0.5s;
+    }
+
+    &:hover {
+      color: $light-brown;
+
+      &::before {
+        opacity: 0;
+        transform: translateX(200%) translateY(-50%);
+      }
+    }
+  }
+
+  @include adpt($stab-r) {
+    padding-bottom: 64px;
+    padding-top: 64px;
+  }
+}

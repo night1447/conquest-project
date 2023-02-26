@@ -1,0 +1,45 @@
+$black: #1B1A17;
+$black-opacity: rgba(27, 26, 23, 0.82);
+$white: #ffffff;
+$white-opacity: rgba(255, 255, 255, 0.75);
+$bg: #FDFDFB;
+$bg-beige: #F7F5EF;
+$beige: #E6C8B4;
+$light-orange: #D4B098;
+$gray: #444240;
+$light-gray: #5C5C50;
+$light-black: #262421;
+$light-brown: #8B8371;
+
+$big-r: 1380;
+$desm-r: 1280;
+$tab-r: 1024;
+$mtab-r: 992;
+$stab-r: 768;
+$bmob-r: 576;
+
+
+@mixin adpt($width) {
+  @media (max-width: #{$width}px) {
+    @content;
+  }
+}
+
+@mixin adptmob($width) {
+  @media (min-width: #{$width}px) {
+    @content;
+  }
+}
+
+@include adpt($bmob-r) {
+
+}
+
+@function max($numbers...) {
+  @return m#{a}x(#{$numbers});
+}
+
+@function min($numbers...) {
+  @return m#{i}n(#{$numbers});
+}
+
